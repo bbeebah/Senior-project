@@ -98,7 +98,7 @@ $(document).ready(function(){
             options: {
                 title: {
                     display: true,
-                    text: 'กราฟผลการวิคเคราะห​์พฤติกรรมการหาผู้โดยสารของรถแท็กซี่ ID : '+select_value+' ในช่วงเวลาต่าง ๆ'
+                    text: 'กราฟผลการวิเคราะห์พฤติกรรมการหาผู้โดยสารของรถแท็กซี่ ID : '+select_value+' ในช่วงเวลาต่าง ๆ'
                 },
                 scales: {
                     xAxes: [{
@@ -187,7 +187,7 @@ $( "#select_id" ).change(function(){
             options: {
                 title: {
                     display: true,
-                    text: 'กราฟผลการวิคเคราะห​์พฤติกรรมการหาผู้โดยสารของรถแท็กซี่ ID : '+select_value+' ในช่วงเวลาต่าง ๆ'
+                    text: 'กราฟผลการวิเคราะห์พฤติกรรมการหาผู้โดยสารของรถแท็กซี่ ID : '+select_value+' ในช่วงเวลาต่าง ๆ'
                 },
                 scales: {
                     xAxes: [{
