@@ -1,1 +1,281 @@
-<h1> test </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Senior Project | 5731069521</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- map -->
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" />
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" /> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+  <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+  <!-- bokeh -->
+  <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css" type="text/css" />
+  <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
+  <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-api-0.12.5.min.js"></script>
+  <!-- web -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- chart -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+  <!-- custom things -->
+
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <style> #show_map {
+      position : relative;
+      width : 100.0%;
+      height: 100.0%;
+      left: 0.0%;
+      top: 0.0%;
+      }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+      <a class="navbar-brand" href="#myPage">Senior Project</a>
+      <span class="navbar-text">
+        Boonyalux Santitamrongvit 5731069521
+      </span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            CLIPS
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-item"><a href="#clip_o"> ORIGIN </a></div>
+            <div class="dropdown-item"><a href="#clip_d"> DESTINATION </a></div>
+            <div class="dropdown-item"><a href="#clip_od">POPULAR AREA</a></div>
+          </div>
+        </li> -->
+        <li><a href="#clip"> CLIPS</a></li>
+        <!-- <li><a href="#portfolio">PORTFOLIO</a></li> -->
+        <li><a href="#graph">GRAPH</a></li>
+        <li><a href="#map">MAP</a></li>
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+
+
+<div class='' style="height: 50px;">
+
+</div>
+
+<!-- Container (About Section) -->
+
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-sm-4 text-center">
+      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+    </div>
+    <div class="col-sm-8">
+      <h2>Analysis Results</h2><br>
+      <h4><strong>การวิเคราะห์ข้อมูลการเดินทางของรถยนต์รับจ้างสาธารณะ (แท็กซี่)</strong></h4><br>
+      <p>จากข้อมูล GPS จากรถแท็กซี่ที่ให้บริการโดยมูลนิธิศูนย์ข้อมูลจราจรอัจฉริยะไทย ในวันที่ 1 กุมพาพันธ์ 2559</p>
+      <p> อาจารย์ที่ปรึกษา ผู้ช่วยศาสตราจารย์ ดร.วีระ เหมืองสิน</p>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Container (Clips Section) -->
+<div id="clip" class="container-fluid text-center bg-grey">
+  <h2>Density map in each hour</h2><br>
+  <h4></h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <video width="100%" controls id='clip_o'>
+          <source src="result/clips/clip_o.mp4" type="video/mp4">
+        </video>
+        <p><strong>density map of Origin</strong></p>
+        <p>แผนที่แสดงความหนาแน่นของพิกัดตำแหน่งที่ผู้โดยสารเริ่มต้นเดินทาง (จุดที่แท็กซี่รับผู้โดยสารขึ้นรถ)</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <video width="100%" controls id='clip_d'>
+          <source src="result/clips/clip_d.mp4" type="video/mp4">
+        </video>
+        <p><strong>density map of Destination</strong></p>
+        <p>แผนที่แสดงความหนาแน่นของพิกัดตำแหน่งปลายทางของผู้โดยสาร (ปลายทางที่แท็กซี่ส่งผู้โดยสาร)</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <video width="100%" controls id='clip_od'>
+          <source src="result/clips/clip_od.mp4" type="video/mp4">
+        </video>
+        <p><strong>density map of Popular area</strong></p>
+        <p>แผนที่แสดงความหนาแน่นของพิกัดตำแหน่งที่มีอัตราการรับผู้โดยสารสูง เมื่อเทียบกับอัตราการส่งผู้โดยสาร</p>
+      </div>
+    </div>
+  </div><br>
+  
+  <ul class="nav nav-tabs ">
+    <li class="active"><a data-toggle="tab" href="#clip_o_desc">density of Origin</a></li>
+    <li><a data-toggle="tab" href="#clip_d_desc">density of Destination</a></li>
+    <li><a data-toggle="tab" href="#clip_od_desc">Popular Area</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="clip_o_desc" class="tab-pane fade in active">
+      <h2>density of Origin</h2>
+      <video width="80%" controls id='clip_o'>
+          <source src="result/clips/clip_o.mp4" type="video/mp4">
+        </video>
+      <p>จากข้อมูลที่ผ่านการประมวลผลมาแล้ว นำมากรองให้เหลือเพียงแค่สถานะข้อมูลที่เป็น O-Origin (ตำแหน่งแรกที่ผู้โดยสารอยู่ในรถ) และนำมาทำการสร้างแผนที่แบบ Grid Map โดยในแต่ละช่องเขตแดน (Tile) มีขนาด 500 เมตร และใช้สีแทนความหนาแน่นของข้อมูลในตำแหน่งช่องต่าง ๆ โดยประมวลผลข้อมูลทีละชั่วโมง เพื่อศึกษาความแตกต่างของพฤติกรรมการใช้บริการ และการให้บริการของรถแท็กซี่</p>
+    </div>
+    <div id="clip_d_desc" class="tab-pane fade">
+      <h2>density of Destination</h2>
+      <video width="80%" controls id='clip_d'>
+          <source src="result/clips/clip_d.mp4" type="video/mp4">
+        </video>
+      <p>จากข้อมูลที่ผ่านการประมวลผลมาแล้ว นำมากรองให้เหลือเพียงแค่สถานะข้อมูลที่เป็น D-Destination (ตำแหน่งสุดท้ายที่ผู้โดยสารอยู่ในรถ) และนำมาทำการสร้างแผนที่แบบ Grid Map โดยในแต่ละช่องเขตแดน (Tile) มีขนาด 500 เมตร และใช้สีแทนความหนาแน่นของข้อมูลในตำแหน่งช่องต่าง ๆ โดยประมวลผลข้อมูลทีละชั่วโมง เพื่อศึกษาความแตกต่างของพฤติกรรมการใช้บริการ และการให้บริการของรถแท็กซี่</p>
+    </div>
+    <div id="clip_od_desc" class="tab-pane fade">
+      <h2>Popular Area</h2>
+      <video width="80%" controls id='clip_od'>
+          <source src="result/clips/clip_od.mp4" type="video/mp4">
+        </video>
+      <p>จากข้อมูลที่ผ่านการประมวลผลมาแล้วและนำมาทำการคำนวณความหนาแน่นของตำแหน่งแรกที่ผู้โดยสารอยู่ในรถ และตำแหน่งสุดท้ายที่ผู้โดยสารอยู่ในรถเรียบร้อยแล้ว นำผลลัพธ์ที่ได้มาประมวลผลเพื่อหาความหนาแน่นของตำแหน่งที่มีอัตราการรับผู้โดยสารสูงกว่าอัตราการส่งผู้โดย เพื่อหาตำแหน่งที่แท็กซี่จะมีโอกาสที่จะได้รับผู้โดยสารสูงในช่วงเวลาต่าง ๆ </p>
+    </div>
+  </div>
+</div>
+
+<!-- Continer (Graph Section) -->
+<div id='graph' class='container-fluid text-center'>
+  <ul class="nav nav-tabs ">
+    <li class="active"><a data-toggle="tab" href="#graph_summary">Summary</a></li>
+    <li><a data-toggle="tab" href="#graph_sumCountTrip">Trip count</a></li>
+    <li><a data-toggle="tab" href="#graph_speedSum">Speed</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="graph_summary" class="tab-pane fade in active">
+      <div class='col-xs-12 col-md-5'>
+        <img src="result/graph/summary.png" style="width:100%; height: 100%;" >
+      </div>
+      <div class='col-xs-12 col-md-7'>
+        <h2>กราฟแสดงผลการวิเคราะห์พฤติกรรมการหาผู้โดยสารในช่วงเวลาต่าง ๆ</h2>
+        
+        <p>จากผลลัพธ์ที่ได้หลังจากผ่านการประมวลผลมาเรียบร้อยแล้วนั้น จะเห็นได้ว่า อัตราส่วนของพฤติกรรมแบบที่ 2 จะสูงกว่าพฤติกรรมแบบอื่นมากในทุกช่วงเวลาของวัน แต่พฤติกรรมแบบที่ 1 และพฤติกรรมแบบที่ 3 นั้นจะมีอัตราส่วนที่ต่ำ แต่มีค่าแตกต่างกันในแต่ละช่วงเวลาอย่างมีนัยสำคัญ</p>
+      </div>
+    </div>
+    <div id="graph_sumCountTrip" class="tab-pane fade">
+        <div class='col-xs-12 col-md-5'>
+            <img src="result/graph/sum_count_trip.png" style="width:100%; height: 100%;" >
+        </div>
+      <div class="col-xs-12 col-md-7">
+        <h2>กราฟแสดงความถี่ของจำนวนทริปของแท็กซี่ในช่วงเวลาที่วิเคราะห์</h2>
+        <p>เส้นสีฟ้า แสดงถึงจำนวนทริปจากข้อมูลที่มีโดยตรง และเส้นสีส้มแสดงถึงจำนวนทริปที่ได้ทำการตัดทริปที่มีความเป็นไปได้ว่าจะเป็นทริปที่เกิดจากการปฏิเสธผู้โดยสาร โดยการพิจารณาตัดผู้โดยสารออกน้ันมาจากเวลาของทริปเป็นหลัก</p>
+      </div>
+    </div>
+    <div id="graph_speedSum" class="tab-pane fade">
+      <div class='col-xs-12 col-md-5'>
+          <img src="result/graph/24hrSpeedSum.png" style="width:100%; height: 100%;" >
+      </div>
+      <div class="col-xs-12 col-md-7">
+        <h2>กราฟแสดงค่าเฉลี่ยของความเร็วและอัตราเร็วที่คำนวณได้ในช่วงเวลาต่าง ๆ</h2>
+        <p>เพื่อใช้ในการวิเคราะห์พฤติกรรมการหาผู้โดยสารของรถแท็กซี่ ได้ทำการประมวลผลข้อมูลหาอัตราเร็วและความเร็วในช่วงเวลาต่าง ๆ เพื่อนำมาใช้เป็นส่วนหนึ่งของการวิเคราะห์</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Container (Map Section) -->
+<div id="map" class="container-fluid bg-grey text-center">
+  <h2>Visualize Taxi Paths</h2>
+  <div  id='selector_taxiid'> </div>
+  <br>
+    <!-- Container (Map) -->
+  <div class="col-md-4 col-sm-12">
+    <div style='padding: 0 10%;'>
+      <canvas id="totalChart" ></canvas>
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-12" style="padding: 45px 0px;">
+    <div style='padding: 0 10%;'>
+      <canvas id="hourChart" ></canvas>
+    </div>
+  </div>
+    
+
+  <br>
+  
+  <div class="folium-map" id="show_map" style="height: 500px"></div>
+</div>
+
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+<footer id='footer' class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Powered by</p>
+  <i class="fa fa-code" style="font-size:36px"></i>
+  <p style="color: #818181"><a href="#footer">HTML</a> <a href="#footer">CSS</a> <a href="https://www.javascript.com/">JavaScript</a> <a href="https://getbootstrap.com/">bootstrap</a></p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+<script src="js/myjs.js"></script>
+</body>
+</html>
