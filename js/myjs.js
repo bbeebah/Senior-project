@@ -22,7 +22,8 @@ var totalChart
 var hourChart
 var taxi_id
 var sel = $('<select id="select_id">').appendTo('#selector_taxiid');
-$.getJSON("result/json_data/taxi_id.json", function(json) {
+// $.getJSON("analyze_part/Output/json_data/taxi_id.json", function(json) {
+$.getJSON("result/json_data/taxi_id.json", function(json) {    
     taxi_id = json;
     $(json).each(function() {
         sel.append($("<option>").attr('value',this).text(this));
@@ -54,6 +55,7 @@ var datahour = {
 
 
 $(document).ready(function(){
+    // $.getJSON('analyze_part/Output/json_data/gen_data.json', function(json){
     $.getJSON('result/json_data/gen_data.json', function(json){
         gen_data = json;
     });
